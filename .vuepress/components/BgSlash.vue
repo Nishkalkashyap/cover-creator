@@ -1,17 +1,22 @@
 <template>
-  <div>
-    <div class="container"></div>
+  <div style="width:100%;height:100%;">
+    <div
+      class="slash-container"
+      :style="{'background' : `linear-gradient(${angle}, ${color1} ${percent1}, ${color2} ${percent2})`}"
+    ></div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["angle", "color1", "percent1", "color2", "percent2"]
+};
 </script>
 
 <style scoped lang="scss">
-.container {
-  width: 100%;
+.slash-container {
   height: 100%;
-  background: linear-gradient(to right bottom, #2f3441 50%, #212531 50%);
+  width: 100%;
+  //   background: linear-gradient(50deg, #00000000 60%, #2f3441 50%);
 }
 </style>
