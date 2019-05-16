@@ -4,6 +4,7 @@
       v-for="(stick, index) in sticks"
       :key="stick.sl + Math.random()"
       :class="index % 2==0 ? 'even' : 'odd'"
+      :style="{'height' : `calc(100% / ${parseInt(divisions)})`}"
       class="cloud-container"
     >
       <div class="cloud start" :style="{'width' : stick.sl + '%','background-color' : color1}"></div>
@@ -18,14 +19,18 @@
 <script>
 import { randomIntFromInterval } from "./util";
 export default {
-  props: ["color1", "color2"],
-  data: function() {
-    const sticks = new Array(15).fill(10).map(val => {
+  props: ["color1", "color2", "divisions", "start", "end"],
+  data() {
+    return { sticks: {} };
+  },
+  mounted() {
+    const sticks = new Array(parseInt(this.divisions)).fill(10).map(val => {
       return {
-        sl: randomIntFromInterval(70, 90)
+        sl: randomIntFromInterval(parseInt(this.start), parseInt(this.end))
       };
     });
-    return { sticks};
+
+    this.$data.sticks = sticks;
   }
 };
 </script>
@@ -37,7 +42,7 @@ export default {
 }
 
 .cloud-container {
-  height: calc(100% / 15);
+  // height: calc(100% / 15);
   position: relative;
 }
 
