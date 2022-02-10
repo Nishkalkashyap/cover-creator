@@ -11,7 +11,7 @@
   "devDependencies": {
     "ionicons": "https://github.com/ionic-team/ionicons/tarball/master",
     "material-icon-theme": "https://github.com/PKief/vscode-material-icon-theme/tarball/master",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "sass-loader": "^7.1.0",
     "vuepress": "^0.14.11"
   }
